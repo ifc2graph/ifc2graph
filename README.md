@@ -2,7 +2,7 @@
 
 Convert an IFC model into a graph.
 
-![ifc2graph illustrations](https://ifc2graph.github.io/ifc2graph/images/ifc2graph-illustrations.png)
+<img src="https://ifc2graph.github.io/ifc2graph/images/ifc2graph-illustrations.png" alt="ifc2graph illustrations">
 
 ifc2graph loads every building element (`IfcElement` and `IfcSpace`) in an IFC model, runs clash detection (`protrusion`, `pierce`, or `collision`) on their geometry, and writes the resulting nodes and edges to a graph database. The graph generation is solely based on geometries and not on IFC relationship entities.
 
