@@ -35,7 +35,7 @@ Overall, ifc2graph is useful for:
 Requires Python 3.10 or newer.
 
 ```bash
-pip install ifc2graph
+pip install -U ifc2graph
 ```
 
 For step-by-step setup, see [Installation](installation.md).
@@ -107,7 +107,7 @@ Below are some more examples:
 ```python
 from ifc2graph import load_model, visualize
 
-model = load_model("../models/FZK-Haus.ifc")
+model = load_model("model.ifc")
 
 # visualizing all spaces
 elements = model.by_type("IfcSpace")

@@ -2,7 +2,9 @@
 
 Convert an IFC model into a graph.
 
-<img src="https://ifc2graph.github.io/ifc2graph/images/ifc2graph-illustrations.png" alt="ifc2graph illustrations">
+<picture>
+  <img src="https://ifc2graph.github.io/ifc2graph/images/ifc2graph-illustrations.png" alt="ifc2graph illustrations">
+</picture>
 
 ifc2graph loads every building element (`IfcElement` and `IfcSpace`) in an IFC model, runs clash detection (`protrusion`, `pierce`, or `collision`) on their geometry, and writes the resulting nodes and edges to a graph database. The graph generation is solely based on geometries and not on IFC relationship entities.
 
@@ -30,7 +32,7 @@ For more information, see **[Documentation](https://ifc2graph.github.io/ifc2grap
 Requires Python 3.10 or newer.
 
 ```bash
-pip install ifc2graph
+pip install -U ifc2graph
 ```
 
 
