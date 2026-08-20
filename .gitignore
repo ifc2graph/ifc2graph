@@ -8,6 +8,7 @@ build/
 venv/
 .env
 .ipynb_checkpoints/
+*.ipynb
 *.ifc
 !docs/assets/models/*.ifc
 .DS_Store
