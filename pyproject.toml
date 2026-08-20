@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ifc2graph"
+version = "0.1.0"
+description = "Convert an IFC model into a graph."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "ifc2graph contributors" }]
+keywords = [
+    "ifc",
+    "bim",
+    "geometry",
+    "intersection",
+    "collision",
+    "neo4j",
+    "graph",
+    "IfcElement",
+    "IfcSpace",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "ifcopenshell",
+    "neo4j",
+]
+
+[project.urls]
+Homepage = "https://ifc2graph.github.io/ifc2graph/"
+Documentation = "https://ifc2graph.github.io/ifc2graph/"
+Repository = "https://github.com/ifc2graph/ifc2graph"
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel",
+    "jupyter",
+]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.27",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ifc2graph"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+    "/docs",
+    "/mkdocs.yml",
+]

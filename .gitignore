@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+*.ifc
+!docs/assets/models/*.ifc
+.DS_Store
+.vscode
+site/
+.notebook*
