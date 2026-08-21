@@ -18,6 +18,7 @@ from ifc2graph.neo4j_io import write_to_neo4j
 def ifc2graph(
     ifc_path: str,
     *,
+    export_to_neo4j: bool = True,
     uri: str | None = None,
     user: str | None = None,
     password: str | None = None,
@@ -35,25 +36,30 @@ def ifc2graph(
 
     Args:
         ifc_path: Path to a ``.ifc`` file.
-        uri: Neo4j Bolt URI. Defaults to ``NEO4J_URI`` or ``bolt://localhost:7687``.
-        user: Neo4j username. Defaults to ``NEO4J_USER`` or ``neo4j``.
-        password: Neo4j password. Defaults to ``NEO4J_PASSWORD``. Required.
+        export_to_neo4j: Whether to export to Neo4j. Defaults to True.
+        uri: Neo4j Bolt URI. Defaults to ``NEO4J_URI`` or ``bolt://localhost:7687``. Required if `export_to_neo4j` is True.
+        user: Neo4j username. Defaults to ``NEO4J_USER`` or ``neo4j``. Required if `export_to_neo4j` is True.
+        password: Neo4j password. Defaults to ``NEO4J_PASSWORD``. Required if `export_to_neo4j` is True.
         tolerance: Intersection tolerance.
         allow_touching: Whether touching (zero-volume) collisions count as hits.
 
     Returns:
-        Unique pairwise clash written to Neo4j.
+        Unique pairwise clash. Also written to Neo4j if `export_to_neo4j` is True.
 
     Raises:
-        ValueError: If no Neo4j password is provided or found in the environment.
+        ValueError: If no Neo4j password is provided or found in the environment and `export_to_neo4j` is True.
     """
-    uri = uri or os.environ.get("NEO4J_URI", "bolt://localhost:7687")
-    user = user or os.environ.get("NEO4J_USER", "neo4j")
-    password = password if password is not None else os.environ.get("NEO4J_PASSWORD")
-    if not password:
-        raise ValueError(
-            "Neo4j password required: pass password=... or set NEO4J_PASSWORD"
-        )
+    
+    if export_to_neo4j:
+        uri = uri or os.environ.get("NEO4J_URI", "bolt://localhost:7687")
+        user = user or os.environ.get("NEO4J_USER", "neo4j")
+        password = password if password is not None else os.environ.get("NEO4J_PASSWORD")
+        if not password:
+            raise ValueError(
+                "Neo4j password required: pass password=... or set NEO4J_PASSWORD"
+            )
+    else:
+        print("Neo4j export will be skipped. Only the clash relationships will be returned.")
 
     start_model_load_time = time.time()
     model = load_model(ifc_path)
@@ -71,12 +77,13 @@ def ifc2graph(
         tree, elements, tolerance=tolerance, allow_touching=allow_touching
     )
     end_clashes_detection_time = time.time()
-    print(f"Clashes detected in {end_clashes_detection_time - start_clashes_detection_time:.2f} seconds.")  
+    print(f"{len(clashes)} clash relationships detected in {end_clashes_detection_time - start_clashes_detection_time:.2f} seconds.")
 
-    print(f"Writing {len(clashes)} clash relationships to Neo4j.")
-    start_neo4j_write_time = time.time()
-    write_to_neo4j(uri, (user, password), elements, clashes)
-    end_neo4j_write_time = time.time()
-    print(f"Neo4j written in {end_neo4j_write_time - start_neo4j_write_time:.2f} seconds.")
+    if export_to_neo4j:
+        print(f"Writing {len(clashes)} clash relationships to Neo4j.")
+        start_neo4j_write_time = time.time()
+        write_to_neo4j(uri, (user, password), elements, clashes)
+        end_neo4j_write_time = time.time()
+        print(f"Neo4j written in {end_neo4j_write_time - start_neo4j_write_time:.2f} seconds.")
 
     return clashes

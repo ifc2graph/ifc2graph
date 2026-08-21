@@ -17,7 +17,7 @@ Overall, ifc2graph is useful for:
 - tracing navigable routes (via rooms, doors, and stairs) as paths through the graph
 - inspecting how two elements interact, whether by protrusion, pierce, or collision
 
-For more information, see **[Documentation](https://ifc2graph.github.io/ifc2graph/)**:
+For more information, see 📝 [Documentation](https://ifc2graph.github.io/ifc2graph/):
 
 - [Installation](https://ifc2graph.github.io/ifc2graph/installation/)
 - [Usage](https://ifc2graph.github.io/ifc2graph/#usage)
@@ -46,12 +46,12 @@ from ifc2graph import ifc2graph
 clashes = ifc2graph(
     "model.ifc",    # IFC model                  
     
-    # Neo4j connection
+    # Neo4j connection (not required if "export_to_neo4j=False")
     uri="bolt://localhost:7687", 
     user="neo4j",
     password="password",
  
-    # optional arguments are tolerance and allow_touching.
+    # optional arguments: "export_to_neo4j", "tolerance" and "allow_touching".
 )
 ```
 

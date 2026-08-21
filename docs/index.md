@@ -52,36 +52,66 @@ from ifc2graph import ifc2graph
 clashes = ifc2graph(
     "model.ifc",    # IFC model                  
     
-    # Neo4j connection
+    # Neo4j connection (not required if "export_to_neo4j=False")
     uri="bolt://localhost:7687", 
     user="neo4j",
     password="password",
  
-    # optional arguments are tolerance and allow_touching.
+    # optional arguments: "export_to_neo4j", "tolerance" and "allow_touching".
 )
 ```
+
+`clashes` is a list of `Clash` objects (`element1`, `element2`, `rel_type`, `collision_type`), one per unique pairwise clash.
 
 ```text title="Example output (FZK-Haus)"
 Model loaded in 0.26 seconds.
 138 elements retrieved.
 Clash detection started.
-Clashes detected in 0.13 seconds.
+531 clash relationships detected in 0.13 seconds.
 Writing 531 clash relationships to Neo4j.
 Neo4j written in 6.25 seconds.
 ```
-
-!!! tip
-    `clashes` is a list of `Clash` objects (`element1`, `element2`, `rel_type`, `collision_type`), one per unique pairwise clash. This list can be iterated over directly and <b>written to another database or pipeline</b> as well.
 
 #### Optional arguments
 
 | Argument | Default | Meaning |
 | --- | --- | --- |
+| `export_to_neo4j` | `True` | Export clashes to Neo4j. Set to `False` to skip writing to Neo4j. This is useful for exporting clash relationships to **another database or pipleine.** |
 | `tolerance` | `0.002` | Intersection tolerance (0.002 -> 2mm) |
 | `allow_touching` | `True` | Count zero-volume touches as collisions. Set to `False` to keep only overlaps that have volume. |
 
-!!! note
-    <b>Relationship direction</b>. Relationships in the graph represent clashs between two elements and are therefore semantically undirected. `A` clashing `B` is the same fact as `B` clashing `A`. Neo4j stores relationships with a direction, but this direction is used only as a storage convention and does not carry semantic meaning. During clash detection, element pairs are canonicalized by sorting their identifiers, so each pair is stored only once. Queries should therefore use undirected Cypher patterns such as `(a)--(b)` or `(a)-[r]-(b)`.
+Skip writing to Neo4j:
+
+```python
+from ifc2graph import ifc2graph
+
+clashes = ifc2graph(
+    "model.ifc",            # IFC model                  
+    export_to_neo4j=False   # Skips writing to Neo4j.
+)
+
+clashes
+```
+
+```text title="Example output (FZK-Haus)"
+
+# Model loaded...
+# ..
+# ...
+
+[
+ Clash(element1='1M$gxUrX1Fiwe3P64ww7U5', element2='3tpK9YydX1r9wtGfAxLhhX', rel_type='Door-OpeningElement', collision_type='protrusion'),
+ Clash(element1='1M$gxUrX1Fiwe3P64ww7U5', element2='0Lt8gR_E9ESeGH5uY_g9e9', rel_type='Door-Space', collision_type='protrusion'),
+ Clash(element1='3jZHeNcfvDMf9wG$wx9XqG', element2='3Ttjr$59XEWfWN1WUHjelZ', rel_type='Beam-WallStandardCase', collision_type='pierce'),
+ Clash(element1='2IuD6UufP6YgRoFmwdoClQ', element2='16DNNqzfP2thtfaOflvsKA', rel_type='Slab-WallStandardCase', collision_type='pierce'),
+ Clash(element1='20bTaetQDApP5w8egFxj13', element2='2DH$OLoObDkAtwqVzNdUnS', rel_type='Beam-Beam', collision_type='pierce'),
+...
+ Clash(element1='2IuD6UufP6YgRoFmwdoClQ', element2='1Q_VN7a91DpxA$Qth_NEOJ', rel_type='Slab-FurnishingElement', collision_type='collision'),
+ Clash(element1='2IuD6UufP6YgRoFmwdoClQ', element2='0knNIAVBPBFvBy_m5QVHsU', rel_type='Slab-WallStandardCase', collision_type='collision'),
+ Clash(element1='2IuD6UufP6YgRoFmwdoClQ', element2='2ptk1k7qn8_Qk22vjh$0DE', rel_type='Slab-WallStandardCase', collision_type='collision')
+]
+```
+
 
 ### Visualization
 
@@ -93,7 +123,7 @@ from ifc2graph import load_model, visualize
 model = load_model("model.ifc")
 # visualize(model, [GUIDs])
 
-# e.g., Visualizing selected elements by directly using their GUIDs
+# e.g., Visualizing selected elements by using their GUIDs
 visualize(model, ["3rPX_Juz59peXXY6wDJl18", "3$f2p7VyLB7eox67SA_zKE"])
 ```
 

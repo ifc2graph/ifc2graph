@@ -38,6 +38,8 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Neo4j</p>
 
+    *Note: Installing Neo4j is optional. If you prefer to use a different database or processing pipeline, you can disable Neo4j export by setting the `export_to_neo4j` argument to `False` when running ifc2graph. See [optional arguments](index.md#optional-arguments).*
+
     ifc2graph writes nodes and edges to a Neo4j database. You need a running instance that accepts Bolt connections (default `bolt://localhost:7687`).
 
     Download [Neo4j Desktop](https://neo4j.com/download/), create a local DBMS, set a password, and start it.
@@ -51,7 +53,7 @@ Requires Python 3.10 or newer.
         | `NEO4J_USER` | username | `neo4j` |
         | `NEO4J_PASSWORD` | password | none (required) |
 
-        In PowerShell for the current session:
+        In PowerShell:
 
         ```powershell
         $env:NEO4J_URI = "bolt://localhost:7687"
@@ -96,6 +98,8 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Neo4j</p>
 
+    *Note: Installing Neo4j is optional. If you prefer to use a different database or processing pipeline, you can disable Neo4j export by setting the `export_to_neo4j` argument to `False` when running ifc2graph. See [optional arguments](index.md#optional-arguments).*
+
     ifc2graph writes nodes and edges to a Neo4j database. You need a running instance that accepts Bolt connections (default `bolt://localhost:7687`).
 
     Download [Neo4j Desktop](https://neo4j.com/download/), create a local DBMS, set a password, and start it.
@@ -109,6 +113,8 @@ Requires Python 3.10 or newer.
         | `NEO4J_USER` | username | `neo4j` |
         | `NEO4J_PASSWORD` | password | none (required) |
 
+        In terminal:
+        
         ```bash
         export NEO4J_URI="bolt://localhost:7687"
         export NEO4J_USER="neo4j"
@@ -157,6 +163,8 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Neo4j</p>
 
+    *Note: Installing Neo4j is optional. If you prefer to use a different database or processing pipeline, you can disable Neo4j export by setting the `export_to_neo4j` argument to `False` when running ifc2graph. See [optional arguments](index.md#optional-arguments).*
+
     ifc2graph writes nodes and edges to a Neo4j database. You need a running instance that accepts Bolt connections (default `bolt://localhost:7687`).
 
     Download [Neo4j Desktop](https://neo4j.com/download/), create a local DBMS, set a password, and start it.
@@ -170,6 +178,8 @@ Requires Python 3.10 or newer.
         | `NEO4J_USER` | username | `neo4j` |
         | `NEO4J_PASSWORD` | password | none (required) |
 
+        In terminal:
+        
         ```bash
         export NEO4J_URI="bolt://localhost:7687"
         export NEO4J_USER="neo4j"
