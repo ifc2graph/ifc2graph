@@ -1,0 +1,1097 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Convert an IFC model into a graph.">
+      
+      
+      
+        <link rel="canonical" href="https://ifc2graph.github.io/ifc2graph/querying/">
+      
+      
+        <link rel="prev" href="../graph/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/ifc2graph.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Examples - ifc2graph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ifc2graph" class="md-header__button md-logo" aria-label="ifc2graph" data-md-component="logo">
+      
+  <img src="../images/ifc2graph.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ifc2graph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ifc2graph/ifc2graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ifc2graph" class="md-nav__button md-logo" aria-label="ifc2graph" data-md-component="logo">
+      
+  <img src="../images/ifc2graph.png" alt="logo">
+
+    </a>
+    ifc2graph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ifc2graph/ifc2graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-between-two-rooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path between two rooms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-is-this-furnishing-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where is this furnishing element?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-walls-belong-to-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What walls belong to this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-rooms-share-this-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which rooms share this wall?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-opens-into-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What opens into this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-else-touches-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What else touches this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-that-share-a-slab-above-or-below" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spaces that share a slab (above or below)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-rooms-are-served-by-the-stair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which rooms are served by the stair?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-to-class-clash-type-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class-to-class clash-type counts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license-dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting started
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-between-two-rooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path between two rooms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-is-this-furnishing-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where is this furnishing element?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-walls-belong-to-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What walls belong to this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-rooms-share-this-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which rooms share this wall?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-opens-into-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What opens into this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-else-touches-this-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What else touches this room?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-that-share-a-slab-above-or-below" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spaces that share a slab (above or below)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-rooms-are-served-by-the-stair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which rooms are served by the stair?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-to-class-clash-type-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class-to-class clash-type counts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h1>
+<p>Here are a few Cypher queries to get started with a Neo4j graph generated by ifc2graph. The IFC model queried below is <a href="https://www.ifcwiki.org/index.php?title=KIT_IFC_Examples">FZK-Haus</a> which can be downloaded from <a href="../assets/models/FZK-Haus.ifc">here</a>. </p>
+<p><i>Note: The FZK-Haus model was created by Institute for Automation and Applied Informatics (IAI) / Karlsruhe Institute of Technology (KIT)</i>.</p>
+<h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h3>
+<p>First list what the IFC file contains.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">class</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(*)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>class,n
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>IfcBeam,51
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>IfcOpeningElement,17
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>IfcFurnishingElement,15
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>IfcWallStandardCase,13
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>IfcWindow,11
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>IfcSpace,7
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>IfcFlowTerminal,6
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>IfcDoor,5
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>IfcVirtualElement,4
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>IfcSlab,4
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>IfcRailing,2
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>IfcColumn,1
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>IfcStair,1
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>IfcDistributionFlowElement,1
+</code></pre></div>
+<p>Next, let's list all elements with a non-empty <code>name</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="p">&lt;&gt;</span><span class="w"> </span><span class="s">""</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">global_id</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>n.ifc_class,n.name,n.global_id
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>IfcBeam,First,20bTaetQDApP5w8egFxj13
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>IfcBeam,Holzbalken-1,11AyI2dXD3Of1cpyMmRVOe
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>IfcBeam,Holzbalken-2,31Jr0dMVnB6wFBfMSDFMJu
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>IfcBeam,Holzbalken-3,32VaklvYr2ORMiXJqZweAD
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>IfcBeam,Holzbalken-4,1X4dAmiW97Nurao$8fngpg
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>...
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>...
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>IfcColumn,Holzstuetze-1,1FnVzZtET9CQDoxryuX4cb
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>IfcDistributionFlowElement,Kamin,2v4ganR1z3h8MICjc5$5KK
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>IfcDoor,Haustuer,2jTRqchjf7oB0yhQ6462T0
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>IfcDoor,Innentuer-1,1Oms875aH3Wg$9l65H2ZGw
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>IfcDoor,Innentuer-2,0pGAjlJMP3ifYPATVF5xAR
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>IfcDoor,Innentuer-3,2qiPPF3FrF8OIqfrKiSUqm
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>IfcDoor,Terrassentuer,1M$gxUrX1Fiwe3P64ww7U5
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>IfcFlowTerminal,Badewanne,2kMJb9nSP6cQTEwW5_e1pQ
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>IfcFlowTerminal,Dusche,34$3o1rlX6PxkMZXYNMcgc
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>IfcFlowTerminal,Duschwanne,20p4aMxXD0WAfsG4MsKwZr
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>IfcFlowTerminal,WC,34CRPiY0z9Lh0Imdh7izir
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>IfcFlowTerminal,Waschbecken-1,2aGMqTvDr2Eg3eQpuzXNjm
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>IfcFlowTerminal,Waschbecken-2,1mH5QEeEDEKuaeQ_66WGpg
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>IfcFurnishingElement,Buerostuhl,0_4FBVad5CdPiQPFwm0ZTR
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>IfcFurnishingElement,Buerotisch,3Xf76okXb0JeRzkFfHr86j
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>IfcFurnishingElement,Doppelbett,3CF666a3P6svf9FiTvqQHX
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>IfcFurnishingElement,Kuechenschrank 1,2pk5$TMeTAfP$Cf$5S2PfR
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>IfcFurnishingElement,Kuechenschrank 2,167KXdKof41x8LiwyqdgRN
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>...
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>...
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Filter on <code>ifc_class</code> rather than on the relationship type: <code>Space-Wall</code> and <code>Wall-Space</code> describe the same kind of contact in opposite A/B order.</p>
+</div>
+<p>Now, let's visualize some of the IFC classes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ifc2graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">visualize</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">"FZK-Haus.ifc"</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">elements</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">"IfcSlab"</span><span class="p">)</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">"IfcDistributionFlowElement"</span><span class="p">)</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">"IfcSpace"</span><span class="p">)</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">"IfcBeam"</span><span class="p">)</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">by_type</span><span class="p">(</span><span class="s2">"IfcFurnishingElement"</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">visualize</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">id</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">])</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># this visualizes IfcSlab, IfcDistributionFlowElement, IfcSpace, IfcBeam, and IfcFurnishingElement</span>
+</code></pre></div>
+<figure>
+  <img alt="Selected classes plot" src="../images/elements-explore.png" />
+<br />
+<figcaption>Visualizing selected IFC classes: IfcSlab, IfcDistributionFlowElement, IfcSpace, IfcBeam, and IfcFurnishingElement.</figcaption>
+</figure>
+<p>The queries below are the kind this graph answers well, since all of them infer meaning from clash. A furniture item counts as "in" a room if it clashes with that <code>IfcSpace</code>. A route between rooms is a path restricted to spaces, doors, stairs, and similar navigable elements.</p>
+<p>Let's see some examples.</p>
+<h3 id="path-between-two-rooms">Path between two rooms<a class="headerlink" href="#path-between-two-rooms" title="Permanent link">&para;</a></h3>
+<p>Restricting the walk to navigable elements keeps the path from passing through a slab or a wall instead of a door. Here is a Cypher query that identifies a walkable path from room <b>1</b> to room <b>7</b>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span><span class="p">}),</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">      </span><span class="p">(</span><span class="n">b</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"7"</span><span class="p">})</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">MATCH</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">shortestPath</span><span class="p">((</span><span class="n">a</span><span class="p">)</span><span class="o">-[</span><span class="p">*..</span><span class="m">20</span><span class="o">]-</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="k">ALL</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcDoor"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcStair"</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="s">"IfcStairFlight"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcRamp"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcRampFlight"</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">RETURN</span><span class="w"> </span><span class="o">[</span><span class="n">n</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">nodes</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="s">" ("</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="s">")"</span><span class="o">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">route</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">       </span><span class="n">length</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">hops</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>route,hops
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>"[1 (IfcSpace), 5 (IfcSpace), Wendeltreppe (IfcStair), 7 (IfcSpace)]",3
+</code></pre></div>
+<figure>
+  <img alt="Path between rooms" src="../images/path-between-rooms.png" />
+<br />
+<figcaption>Visualizing the elements in the route from above.</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Drop <code>IfcStair</code> and <code>IfcStairFlight</code> from the list for a step-free route.</p>
+</div>
+<h3 id="where-is-this-furnishing-element">Where is this furnishing element?<a class="headerlink" href="#where-is-this-furnishing-element" title="Permanent link">&para;</a></h3>
+<p>Let's now search for a room that contains the furnishing element (<code>Rudermaschine</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"Rudermaschine"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcFurnishingElement"</span><span class="o">]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"IfcSpace"</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">room</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">global_id</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>item,room,s.global_id
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Rudermaschine,7,2dQFggKBb1fOc1CqZDIDlx
+</code></pre></div>
+<figure>
+  <img alt="Furnishing element's room" src="../images/furnishing-element-room.png" />
+<br />
+<figcaption>Visualizing the furnishing element (Rudermaschine) and all spaces.</figcaption>
+</figure>
+<h3 id="what-walls-belong-to-this-room">What walls belong to this room?<a class="headerlink" href="#what-walls-belong-to-this-room" title="Permanent link">&para;</a></h3>
+<p>Let's now search for walls that belong to room <b>1</b>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">w</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcWall"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcWallStandardCase"</span><span class="o">]</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">global_id</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">ifc_class</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>w.name,w.global_id,w.ifc_class
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Wand-Ext-ERDG-1,3rPX_Juz59peXXY6wDJl18,IfcWallStandardCase
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Wand-Int-ERDG-5,1$wmdwWPjDYuku_ghVkynE,IfcWallStandardCase
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Wand-Int-ERDG-4,2XPyKWY018sA1ygZKgQPtU,IfcWallStandardCase
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Wand-Int-ERDG-2,3PfS__Y_DBAfq5naM6zD2Z,IfcWallStandardCase
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Wand-Int-ERDG-3,3jjW3rL656ex34Gws22EfM,IfcWallStandardCase
+</code></pre></div>
+<figure>
+  <img alt="Room walls" src="../images/room-walls.png" />
+<br />
+<figcaption>Visualizing all walls touched by room 1.</figcaption>
+</figure>
+<h3 id="which-rooms-share-this-wall">Which rooms share this wall?<a class="headerlink" href="#which-rooms-share-this-wall" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">w</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"Wand-Ext-ERDG-1"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcWall"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcWallStandardCase"</span><span class="o">]</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"IfcSpace"</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">global_id</span>
+</code></pre></div>
+<p>Also useful for adjacency checks, acoustic analysis, or fire compartmentation studies.</p>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>s.name,s.global_id
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>1,3$f2p7VyLB7eox67SA_zKE
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>6,17JZcMFrf5tOftUTidA0d3
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>2,2RSCzLOBz4FAK$_wE8VckM
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>7,2dQFggKBb1fOc1CqZDIDlx
+</code></pre></div>
+<figure>
+  <img alt="Wall rooms" src="../images/wall-rooms.png" />
+<br />
+<figcaption>Visualizing all rooms shared by wall "Wand-Ext-ERDG-1".</figcaption>
+</figure>
+<h3 id="what-opens-into-this-room">What opens into this room?<a class="headerlink" href="#what-opens-into-this-room" title="Permanent link">&para;</a></h3>
+<p>Here we explore what doors, windows and openings belong to room <b>2</b>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"2"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">o</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcDoor"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcWindow"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcOpeningElement"</span><span class="o">]</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">global_id</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">UNION</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"2"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">op</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span><span class="err">--</span><span class="p">(</span><span class="n">o</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"IfcOpeningElement"</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcDoor"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcWindow"</span><span class="o">]</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">.</span><span class="n">global_id</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>o.ifc_class,o.name,o.global_id
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>IfcOpeningElement,,0_wr1YyJn40e1zOIOjpozG
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>IfcOpeningElement,,3movl7pYTEA8fIVnSqIzcM
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>IfcOpeningElement,,07VmyeyBL28wLwezn9tmyV
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>IfcWindow,EG-Fenster-6,1srAI$R4T8ihLXSNHmUSET
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>IfcWindow,EG-Fenster-1,1TAI4ouKX4Xx4lBDZIu5qM
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>IfcDoor,Innentuer-3,2qiPPF3FrF8OIqfrKiSUqm
+</code></pre></div>
+<figure>
+  <img alt="Room openings" src="../images/room-openings.png" />
+<br />
+<figcaption>Visualizing room <b>2</b> and its openings.</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A door or window usually sits in the wall thickness, so it often clashes with its <code>IfcOpeningElement</code> rather than with the <code>IfcSpace</code> volume. Matching only <code>(space)--(door)</code> can miss the filling.</p>
+</div>
+<h3 id="what-else-touches-this-room">What else touches this room?<a class="headerlink" href="#what-else-touches-this-room" title="Permanent link">&para;</a></h3>
+<p>Let's identify all elements that touch room <b>2</b>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">"2"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(*)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="o">[</span><span class="m">0</span><span class="p">..</span><span class="m">8</span><span class="o">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">examples</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>e.ifc_class,n,examples
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>IfcWallStandardCase,4,"[Wand-Ext-ERDG-1, Wand-Ext-ERDG-2, Wand-Int-ERDG-3, Wand-Int-ERDG-1]"
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>IfcOpeningElement,3,"[, , ]"
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>IfcSlab,2,"[Bodenplatte, Slab-033]"
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>IfcFurnishingElement,2,"[Buerostuhl, Buerotisch]"
+</code></pre></div>
+<figure>
+  <img alt="Room touch" src="../images/room-touch.png" />
+<br />
+<figcaption>Visualizing all elements that touch room <b>2</b>.</figcaption>
+</figure>
+<h3 id="spaces-that-share-a-slab-above-or-below">Spaces that share a slab (above or below)<a class="headerlink" href="#spaces-that-share-a-slab-above-or-below" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s1</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">})</span><span class="err">--</span><span class="p">(</span><span class="n">sl</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span><span class="err">--</span><span class="p">(</span><span class="n">s2</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">})</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">sl</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcSlab"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcRoof"</span><span class="o">]</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">global_id</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">global_id</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sl</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">name</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>s1.name,sl.name,s2.name
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>5,Bodenplatte,3
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>5,Slab-033,3
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>5,Bodenplatte,6
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>3,Bodenplatte,6
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>5,Slab-033,6
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>3,Slab-033,6
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>5,Bodenplatte,2
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>3,Bodenplatte,2
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>6,Bodenplatte,2
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>5,Slab-033,2
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>3,Slab-033,2
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>6,Slab-033,2
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>5,Slab-033,7
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>3,Slab-033,7
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>6,Slab-033,7
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>2,Slab-033,7
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>5,Bodenplatte,1
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>3,Bodenplatte,1
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>6,Bodenplatte,1
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>2,Bodenplatte,1
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>5,Slab-033,1
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>3,Slab-033,1
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>6,Slab-033,1
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>2,Slab-033,1
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>7,Slab-033,1
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>5,Bodenplatte,4
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>3,Bodenplatte,4
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>6,Bodenplatte,4
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>2,Bodenplatte,4
+<a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>1,Bodenplatte,4
+<a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>5,Slab-033,4
+<a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>3,Slab-033,4
+<a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>6,Slab-033,4
+<a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>2,Slab-033,4
+<a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>7,Slab-033,4
+<a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>1,Slab-033,4
+</code></pre></div>
+<h3 id="which-rooms-are-served-by-the-stair">Which rooms are served by the stair?<a class="headerlink" href="#which-rooms-are-served-by-the-stair" title="Permanent link">&para;</a></h3>
+<p>Let's now see which rooms are served by the only stair present in the model.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span><span class="err">--</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">BuildingElement</span><span class="w"> </span><span class="p">{</span><span class="n">ifc_class</span><span class="p">:</span><span class="w"> </span><span class="s">"IfcSpace"</span><span class="p">})</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">ifc_class</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">"IfcStair"</span><span class="p">,</span><span class="w"> </span><span class="s">"IfcStairFlight"</span><span class="o">]</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">collect</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rooms_served</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>st.name,rooms_served
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Wendeltreppe,"[5, 7]"
+</code></pre></div>
+<figure>
+  <img alt="Stair rooms" src="../images/stair-rooms.png" />
+<br />
+<figcaption>Visualizing the rooms connected by the only stair in the IFC model.</figcaption>
+</figure>
+<h3 id="class-to-class-clash-type-counts">Class-to-class clash-type counts<a class="headerlink" href="#class-to-class-clash-type-counts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span><span class="o">-[</span><span class="n">r</span><span class="o">]-</span><span class="p">(</span><span class="n">b</span><span class="p">:</span><span class="n">BuildingElement</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">global_id</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">global_id</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">ifc_class</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">clash_type</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(*)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>a.ifc_class,b.ifc_class,r.clash_type,n
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>IfcBeam,IfcBeam,pierce,84
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>IfcSlab,IfcBeam,collision,35
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>IfcSlab,IfcBeam,protrusion,30
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>IfcBeam,IfcBeam,collision,24
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>IfcBeam,IfcWallStandardCase,collision,23
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>IfcWallStandardCase,IfcWallStandardCase,collision,22
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>IfcBeam,IfcSpace,collision,20
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>IfcSpace,IfcWallStandardCase,collision,19
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>IfcSlab,IfcWallStandardCase,collision,15
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>IfcSpace,IfcBeam,collision,15
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>IfcWallStandardCase,IfcSpace,collision,13
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>IfcWallStandardCase,IfcBeam,collision,13
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>IfcBeam,IfcSlab,collision,12
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>IfcBeam,IfcSlab,protrusion,12
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>IfcSpace,IfcOpeningElement,collision,10
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>IfcOpeningElement,IfcWallStandardCase,collision,10
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>IfcSlab,IfcSpace,collision,9
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>IfcOpeningElement,IfcSpace,collision,8
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>IfcSpace,IfcFurnishingElement,protrusion,8
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>IfcFurnishingElement,IfcSpace,protrusion,7
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>IfcWallStandardCase,IfcSlab,collision,7
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>IfcOpeningElement,IfcWindow,protrusion,6
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>...
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>...
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../graph/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graph Schema">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Graph Schema
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api/" class="md-footer__link md-footer__link--next" aria-label="Next: API Reference">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                API Reference
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ifc2graph contributors
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "content.code.copy", "content.tabs.link", "search.highlight", "search.suggest", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
