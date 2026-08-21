@@ -16,24 +16,23 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Install ifc2graph</p>
 
-    In the folder where you want to work, create a virtual environment and install the package:
+    **Quick Install**:
+    ```powershell
+    pip install -U ifc2graph
+    ```
+
+    **Recommended**: use a virtual environment. In the folder where you want to work, create a virtual environment and install the package:
 
     ```powershell
     py -3 -m venv .venv
     .venv\Scripts\Activate.ps1
-    pip install ifc2graph
+    pip install -U ifc2graph
     ```
 
     If PowerShell blocks the activate script, run this once for your user account, then activate again:
 
     ```powershell
     Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-    ```
-
-    Alternatively, without a virtual environment:
-
-    ```powershell
-    pip install ifc2graph
     ```
 
     <p class="tab-h2">Neo4j</p>
@@ -82,18 +81,17 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Install ifc2graph</p>
 
-    In the folder where you want to work, create a virtual environment and install the package:
+    **Quick Install**:
+    ```bash
+    pip install -U ifc2graph
+    ```
 
+    **Recommended**: use a virtual environment. In the folder where you want to work, create a virtual environment and install the package:
+    
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
-    pip install ifc2graph
-    ```
-
-    Alternatively, without a virtual environment:
-
-    ```bash
-    pip install ifc2graph
+    pip install -U ifc2graph
     ```
 
     <p class="tab-h2">Neo4j</p>
@@ -145,21 +143,20 @@ Requires Python 3.10 or newer.
 
     <p class="tab-h2">Install ifc2graph</p>
 
-    In the folder where you want to work, create a virtual environment and install the package:
+    **Quick Install**:
+    ```bash
+    pip install -U ifc2graph
+    ```
 
+    **Recommended**: use a virtual environment. In the folder where you want to work, create a virtual environment and install the package:
+    
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
-    pip install ifc2graph
+    pip install -U ifc2graph
     ```
 
     On Debian and Ubuntu, `apt install python3-venv` is required before `python3 -m venv` will work.
-
-    Alternatively, without a virtual environment:
-
-    ```bash
-    pip install ifc2graph
-    ```
 
     <p class="tab-h2">Neo4j</p>
 
