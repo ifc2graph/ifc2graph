@@ -1,0 +1,62 @@
+.md-typeset .viz-preview {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md-typeset .viz-preview img {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+}
+
+.md-typeset .viz-pair {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.md-typeset .viz-pair img {
+  max-width: 280px;
+  flex: 1 1 200px;
+  width: auto;
+  height: auto;
+}
+
+.md-typeset .viz-pair figcaption {
+  flex: 1 0 100%;
+}
+
+.md-typeset figcaption {
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .tagline {
+  margin-top: -0.7em;
+  margin-bottom: 1.6em;
+  font-size: 1.15em;
+  font-weight: 400;
+  color: var(--md-default-fg-color--light);
+  letter-spacing: -0.01em;
+}
+
+.bibtex-wrap pre > code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.tab-h2 {
+  margin: 1.6em 0 0.64em;
+  font-weight: 400;
+  font-size: 1.5625em;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.tabbed-block > .tab-h2:first-child {
+  margin-top: 0;
+}
+
